@@ -1,0 +1,33 @@
+{
+  "name": "cookieclicker",
+  "version": "1.0.0",
+  "description": "Simple cookieclicker game made in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolsw2/Cookieclicker.git"
+  },
+  "keywords": [
+    "cookieclicker",
+    "javascript",
+    "cookies"
+  ],
+  "author": "Karol Świerczek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karolsw2/Cookieclicker/issues"
+  },
+  "homepage": "https://github.com/karolsw2/Cookieclicker#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "gulp": "^3.9.1",
+    "gulp-apidoc": "^0.2.7",
+    "gulp-pug": "^3.3.0",
+    "gulp-stylus": "^2.7.0",
+    "pug": "^2.0.3",
+    "stylus": "^0.54.5"
+  }
+}
