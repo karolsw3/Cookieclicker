@@ -4,7 +4,7 @@ const debug = require('gulp-debug')
 var stylus = require('gulp-stylus')
 const babel = require('gulp-babel')
 var uglify = require('gulp-uglify-es').default
-var apidoc = require('gulp-apidoc')
+var jsdoc = require('gulp-jsdoc3')
 var pump = require('pump')
 
 gulp.task('html', function () {
@@ -21,11 +21,9 @@ gulp.task('css', function () {
     .pipe(gulp.dest('build'))
 })
 
-gulp.task('apidoc', function (done) {
-  apidoc({
-    src: 'src/',
-    dest: 'docs/'
-  }, done)
+gulp.task('jsdoc', function (cb) {
+  gulp.src(['README.md', './src/**/*.js'], {read: false})
+    .pipe(jsdoc(cb))
 })
 
 gulp.task('compress', function (cb) {
@@ -40,4 +38,4 @@ gulp.task('compress', function (cb) {
   )
 })
 
-gulp.task('default', ['html', 'css', 'compress', 'apidoc'])
+gulp.task('default', ['html', 'css', 'compress', 'jsdoc'])
