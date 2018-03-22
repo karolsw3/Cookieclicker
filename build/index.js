@@ -1,1 +1,1 @@
-"use strict";
+"use strict";var _Game=require("components/Game"),game=new _Game.Game;game.init();
