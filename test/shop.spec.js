@@ -29,5 +29,15 @@ describe('Shop', () => {
         result.succeeded.should.equal(false)
       })
     })
+
+    it('returns proper change', () => {
+      shop.buy({
+        type: 'building',
+        name: 'grandmother',
+        cookies: 150
+      }, (result) => {
+        result.change.should.equal(50)
+      })
+    })
   })
 })

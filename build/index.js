@@ -1,1 +1,1 @@
-"use strict";var _Game=require("./components/Game"),game=new _Game.Game;game.init();
+"use strict";var _Game=require("./components/Game"),_Game2=_interopRequireDefault(_Game);function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}var game=new _Game2.default;game.init();

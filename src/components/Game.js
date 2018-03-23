@@ -8,7 +8,6 @@ class Game {
   constructor () {
     this.cookies = 0
     this.cookiesPerClick = 1
-    this.cookiesPerSecond = 0
     this.buildings = {}
     this.shop = new Shop()
     this.view = {}
@@ -19,6 +18,13 @@ class Game {
    */
   init () {
 
+  }
+
+  /**
+   * Get quantity of cookies produced per second
+   */
+  get cookiesPerSecond () {
+    return this.buildings.map(building => building.cps)
   }
 
   /**
