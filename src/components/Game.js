@@ -1,4 +1,5 @@
 import Shop from './Shop'
+import View from './View'
 
 /**
  * Basic game class.
@@ -10,14 +11,24 @@ class Game {
     this.cookiesPerClick = 1
     this.buildings = {}
     this.shop = new Shop()
-    this.view = {}
+    this.view = new View()
   }
 
   /**
    * Initialise the game
    */
   init () {
+    this.startInterval()
+    this.view.cookie.addEventListener('onclick', this.cookieClick)
+  }
 
+  /**
+   * Start main game interval
+   */
+  startInterval () {
+    setInterval(() => {
+      this.cookies += this.cookiesPerSecond
+    }, 1000)
   }
 
   /**
