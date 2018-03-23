@@ -1,4 +1,4 @@
-import { Shop } from 'Shop'
+import Shop from './Shop'
 
 /**
  * Basic game class.
@@ -29,4 +29,4 @@ class Game {
   }
 }
 
-export default Game
+module.exports = Game
