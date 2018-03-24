@@ -11,14 +11,14 @@ gulp.task('html', function () {
   return gulp.src('src/*.pug')
     .pipe(debug({title: 'Html:'}))
     .pipe(pug())
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('dist'))
 })
 
 gulp.task('css', function () {
   return gulp.src('src/*.styl')
     .pipe(debug({title: 'Css:'}))
     .pipe(stylus())
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('dist'))
 })
 
 gulp.task('jsdoc', function (cb) {
@@ -26,16 +26,16 @@ gulp.task('jsdoc', function (cb) {
     .pipe(jsdoc(cb))
 })
 
-gulp.task('compress', function (cb) {
-  pump([
-    gulp.src('src/*.js').pipe(babel({
-      presets: ['env']
-    })),
-    uglify(),
-    gulp.dest('build')
-  ],
-  cb
-  )
-})
+// gulp.task('compress', function (cb) {
+//  pump([
+//    gulp.src('src/**/*.js').pipe(babel({
+//      presets: ['env']
+//    })),
+//    uglify(),
+//    gulp.dest('dist')
+//  ],
+//  cb
+//  )
+// })
 
-gulp.task('default', ['html', 'css', 'compress', 'jsdoc'])
+gulp.task('default', ['html', 'css', 'jsdoc'])

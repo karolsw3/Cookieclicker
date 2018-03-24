@@ -9,7 +9,7 @@ class Game {
   constructor () {
     this.cookies = 0
     this.cookiesPerClick = 1
-    this.buildings = {}
+    this.buildings = [{cps: 0}]
     this.shop = new Shop()
     this.view = new View()
   }
@@ -19,7 +19,7 @@ class Game {
    */
   init () {
     this.startInterval()
-    this.view.cookie.addEventListener('onclick', this.cookieClick)
+    this.view.cookie.addEventListener('click', this.cookieClick.bind(this), false)
   }
 
   /**
@@ -27,7 +27,8 @@ class Game {
    */
   startInterval () {
     setInterval(() => {
-      this.cookies += this.cookiesPerSecond
+      this.cookies += parseInt(this.cookiesPerSecond)
+      this.view.setCookieCounter(this.cookies)
     }, 1000)
   }
 
@@ -43,7 +44,8 @@ class Game {
    */
   cookieClick () {
     this.cookies += this.cookiesPerClick
+    this.view.setCookieCounter(this.cookies)
   }
 }
 
-module.exports = Game
+export default Game

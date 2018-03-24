@@ -9,7 +9,11 @@ class Shop {
         'cursor': {price: 15, cps: 0.1},
         'grandmother': {price: 100, cps: 8},
         'bakery': {price: 4000, cps: 75},
-        'factory': {price: 85000, cps: 400}
+        'factory': {price: 85000, cps: 400},
+        'cookie town': {price: 900000, cps: 5000}
+      },
+      upgrade: {
+        'cursor': {price: 500, cpc: 4}
       }
     }
   }
@@ -52,4 +56,4 @@ class Shop {
   }
 }
 
-module.exports = Shop
+export default Shop
