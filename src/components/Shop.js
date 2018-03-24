@@ -4,18 +4,21 @@
  */
 class Shop {
   constructor () {
-    this.items = {
-      building: {
-        'cursor': {price: 15, cps: 0.1},
-        'grandmother': {price: 100, cps: 8},
-        'bakery': {price: 4000, cps: 75},
-        'factory': {price: 85000, cps: 400},
-        'cookie town': {price: 900000, cps: 5000}
-      },
-      upgrade: {
-        'cursor': {price: 500, cpc: 4}
-      }
-    }
+    this.categories = [{
+      name: 'buildings',
+      items: [
+        {id: 0, name: 'cursor', price: 15, cps: 0.1},
+        {id: 1, name: 'grandmother', price: 100, cps: 8},
+        {id: 2, name: 'bakery', price: 4000, cps: 75},
+        {id: 3, name: 'factory', price: 85000, cps: 400},
+        {id: 4, name: 'cookie town', price: 900000, cps: 5000}
+      ]
+    }, {
+      name: 'upgrades',
+      items: [
+        {id: 5, name: 'cursor', price: 500, cpc: 4}
+      ]
+    }]
   }
 
   /**
@@ -35,21 +38,23 @@ class Shop {
    * Buy specified item
    *
    * @param {object} info - Information about transaction
-   *   @param {string} info.type - Type of the item to be bought
-   *   @param {string} info.name - Name of the item
+   *   @param {string} info.id - ID of the item wished to buy
    *   @param {number} info.cookies - All cookies owned by user
    * @param {buyItemCallback} callback - Callback with result object
    */
-  buy ({type, name, cookies}, callback) {
-    var result = {feedback: '', item: {}, change: 0, succeeded: false}
-    if (typeof this.items[type][name] !== 'object') {
-      result.feedback = "Specified item doesn't exists"
-    } else if (this.items[type][name].price > cookies) {
-      result.feedback = "You don't have enough money to buy that"
+  buy ({id, cookies}, callback) {
+    var result = {feedback: '', item: {}, change: cookies, succeeded: false}
+    result.item = this.categories.map(category => {
+      return category.items.find(item => item.id === id)
+    })[0]
+
+    if (result.item === 'undefined') {
+      result.feedback = "Item with specified ID doesn't exist!"
+    } else if (cookies < result.item.price) {
+      result.feedback = "You don't have enough money to buy that item!"
     } else {
-      result.feedback = 'Item has been bought'
-      result.item = this.items[type][name]
-      result.change = cookies - result.item.price
+      result.feedback = 'Item has been bought successfully'
+      result.change -= result.item.price
       result.succeeded = true
     }
     callback(result)

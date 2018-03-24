@@ -19,6 +19,7 @@ class Game {
    */
   init () {
     this.startInterval()
+    this.view.showShopItems(this.shop.categories)
     this.view.cookie.addEventListener('click', this.cookieClick.bind(this), false)
   }
 

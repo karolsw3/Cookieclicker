@@ -12,8 +12,7 @@ describe('Shop', () => {
 
     it('buys affordable item', () => {
       shop.buy({
-        type: 'building',
-        name: 'grandmother',
+        id: 1,
         cookies: 100
       }, (result) => {
         result.succeeded.should.equal(true)
@@ -22,8 +21,7 @@ describe('Shop', () => {
 
     it("can't buy unaffordable item", () => {
       shop.buy({
-        type: 'building',
-        name: 'grandmother',
+        id: 1,
         cookies: 99
       }, (result) => {
         result.succeeded.should.equal(false)
@@ -32,8 +30,7 @@ describe('Shop', () => {
 
     it('returns proper change', () => {
       shop.buy({
-        type: 'building',
-        name: 'grandmother',
+        id: 1,
         cookies: 150
       }, (result) => {
         result.change.should.equal(50)
