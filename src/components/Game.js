@@ -19,8 +19,15 @@ class Game {
    */
   init () {
     this.startInterval()
-    this.view.showShopItems(this.shop.categories)
+    this.reloadShopView()
     this.view.cookie.addEventListener('click', this.cookieClick.bind(this), false)
+  }
+
+  reloadShopView () {
+    this.view.showShopItems(this.shop.categories)
+    this.view.buyButtons.map(button => {
+      button.addEventListener('click', this.buyButtonClick.bind(this), false)
+    })
   }
 
   /**
@@ -28,7 +35,7 @@ class Game {
    */
   startInterval () {
     setInterval(() => {
-      this.cookies += parseInt(this.cookiesPerSecond)
+      this.cookies += Math.round(parseInt(this.cookiesPerSecond))
       this.view.setCookieCounter(this.cookies)
     }, 1000)
   }
@@ -37,7 +44,7 @@ class Game {
    * Get quantity of cookies produced per second
    */
   get cookiesPerSecond () {
-    return this.buildings.map(building => building.cps)
+    return this.buildings.map(building => building.cps).reduce((a, b) => a + b, 0)
   }
 
   /**
@@ -46,6 +53,25 @@ class Game {
   cookieClick () {
     this.cookies += this.cookiesPerClick
     this.view.setCookieCounter(this.cookies)
+  }
+
+  /**
+   * Fired when a buy button is clicked
+   */
+  buyButtonClick (event) {
+    this.shop.buy({
+      id: event.target.id,
+      cookies: this.cookies
+    }, (result) => {
+      if (result.succeeded) {
+        result.item.price *= 1.4
+        this.reloadShopView()
+        this.buildings.push(result.item)
+        this.cookies = Math.round(result.change)
+        this.view.setCookieCounter(this.cookies)
+        this.view.setCpsCounter(this.cookiesPerSecond)
+      }
+    })
   }
 }
 

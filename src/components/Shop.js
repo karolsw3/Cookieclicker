@@ -7,7 +7,7 @@ class Shop {
     this.categories = [{
       name: 'buildings',
       items: [
-        {id: 0, name: 'cursor', price: 15, cps: 0.1},
+        {id: 0, name: 'cursor', price: 15, cps: 1},
         {id: 1, name: 'grandmother', price: 100, cps: 8},
         {id: 2, name: 'bakery', price: 4000, cps: 75},
         {id: 3, name: 'factory', price: 85000, cps: 400},
@@ -45,13 +45,13 @@ class Shop {
   buy ({id, cookies}, callback) {
     var result = {feedback: '', item: {}, change: cookies, succeeded: false}
     result.item = this.categories.map(category => {
-      return category.items.find(item => item.id === id)
+      return category.items.find(item => item.id === parseInt(id))
     })[0]
 
-    if (result.item === 'undefined') {
+    if (typeof result.item === 'undefined') {
       result.feedback = "Item with specified ID doesn't exist!"
     } else if (cookies < result.item.price) {
-      result.feedback = "You don't have enough money to buy that item!"
+      result.feedback = "You don't have enough money to buy this item!"
     } else {
       result.feedback = 'Item has been bought successfully'
       result.change -= result.item.price
