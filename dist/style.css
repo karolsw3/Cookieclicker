@@ -116,6 +116,15 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
 .gameBox #cpsCounter {
   font-size: 26px;
 }
+.shop__category {
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f55;
+  color: #fff;
+  font-size: 1.4em;
+}
 .item {
   padding: 10px;
   box-sizing: border-box;
@@ -152,7 +161,7 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   padding: 3px 30px;
   border-radius: 8px;
   border: none;
-  background: #d9425e;
+  background: #f55;
   cursor: pointer;
   font-family: 'Open Sans';
   transition-duration: 0.12s;

@@ -35,6 +35,7 @@ class View {
   showShopItems (categories) {
     this.shop.innerHTML = ''
     categories.map(category => {
+      this.shop.appendChild(this.createCategoryElement(category.name))
       category.items.map(item => {
         this.shop.appendChild(this.createItemElement(item))
       })
@@ -74,6 +75,17 @@ class View {
     elementDescription.innerText = item.description
     element.appendChild(elementDescription)
     element.appendChild(this.createBuyButton(item.id))
+    return element
+  }
+
+  /**
+   * Create category DOM label and return it
+   * @param {string} name - Category name
+   */
+  createCategoryElement (name) {
+    var element = document.createElement('div')
+    element.className = 'shop__category'
+    element.innerText = name
     return element
   }
 

@@ -5,7 +5,7 @@
 class Shop {
   constructor () {
     this.categories = [{
-      name: 'buildings',
+      name: 'Buildings',
       items: [
         {id: 0, name: 'Cursor', price: 15, cps: 1, cpc: 0, description: 'Automatically clicks for you every second (+1cps)', owned: 0},
         {id: 1, name: 'Grandmother', price: 100, cps: 8, cpc: 0, description: 'Good grandma to bake your cookies (+8cps)', owned: 0},
@@ -14,7 +14,7 @@ class Shop {
         {id: 4, name: 'Cookie town', price: 900000, cps: 5000, cpc: 0, description: '¡Viva el presidente! (+5000cps)', owned: 0}
       ]
     }, {
-      name: 'upgrades',
+      name: 'Upgrades',
       items: [
         {id: 5, name: 'Cursor upgrade', price: 500, cps: 0, cpc: 4, description: 'Increases cookies per click', owned: 0}
       ]
