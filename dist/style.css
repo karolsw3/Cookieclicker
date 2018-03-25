@@ -1,0 +1,217 @@
+@import url("//db.onlinewebfonts.com/c/399d390534f151d40946031425404445?family=Gill+Sans+Std");
+html,
+body {
+  margin: 0;
+  font-family: 'Gill Sans Std';
+  background-color: #5f8dd3;
+  background-image: url("images/background.svg");
+}
+input[type=checkbox] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+input[type=checkbox]:checked ~ .menu .menu__dropdown {
+  left: 0;
+}
+input[type=checkbox]:checked ~ .menu .menu__button {
+  left: 300px;
+}
+input[type=checkbox]:checked ~ .menu .menu__burger {
+  margin: 0 auto;
+  position: absolute;
+}
+input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(1) {
+  transform: rotate(45deg);
+}
+input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(2) {
+  opacity: 0;
+}
+input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
+  transform: rotate(-45deg);
+}
+.menu {
+  position: absolute;
+  top: 0;
+  display: flex;
+  height: 100%;
+  background-color: #80b3ff;
+}
+.menu__button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 70px;
+  width: 70px;
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.42s;
+}
+.menu__button:hover {
+  opacity: 0.8;
+}
+.menu__button:hover .menu__burger {
+  background: #fff;
+}
+.menu__burger {
+  display: block;
+  width: 40px;
+  height: 4px;
+  border-radius: 4px;
+  background: #d7e3f4;
+  margin: 5px;
+  transition: all 0.52s;
+  transition-timing-function: cubic-bezier(0.18, 1.88, 1, 1);
+}
+.menu__dropdown {
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  background: #80b3ff;
+  transition: all 0.52s;
+  transition-timing-function: cubic-bezier(0.49, 0.97, 0.4, 1);
+  max-height: 100vh;
+  overflow-x: auto;
+}
+.gameBox {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  flex-direction: column;
+  color: #fff;
+  line-height: 0px;
+}
+.gameBox #cookie {
+  margin-top: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+.gameBox #cookie img {
+  animation-name: rotate;
+  animation-duration: 64s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.gameBox #cookieCounter {
+  font-size: 78px;
+}
+.gameBox #cpsCounter {
+  font-size: 26px;
+}
+.item {
+  margin: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #517ec0;
+  border-radius: 13px;
+}
+.item:nth-child(odd) {
+  background-color: #3d72c1;
+}
+.item__title {
+  font-size: 1.2em;
+  background: #6c9be2;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 9px;
+  text-align: center;
+}
+.item__price {
+  margin: 5px;
+  padding: 5px;
+  background: #6c9be2;
+  color: #3b5a88;
+  border-radius: 9px;
+}
+.item__button {
+  padding: 5px 20px;
+  border: 3px solid #eb93a3;
+  border-radius: 8px;
+  background: #d9425e;
+  cursor: pointer;
+  font-family: 'Gill Sans Std';
+  transition-duration: 0.12s;
+  color: #fff;
+}
+.item__button:hover {
+  opacity: 0.7;
+}
+@-moz-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transfrom: rotate(180deg);
+  }
+  75% {
+    transfrom: rotate(270deg);
+  }
+  100% {
+    transfrom: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transfrom: rotate(180deg);
+  }
+  75% {
+    transfrom: rotate(270deg);
+  }
+  100% {
+    transfrom: rotate(360deg);
+  }
+}
+@-o-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transfrom: rotate(180deg);
+  }
+  75% {
+    transfrom: rotate(270deg);
+  }
+  100% {
+    transfrom: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transfrom: rotate(180deg);
+  }
+  75% {
+    transfrom: rotate(270deg);
+  }
+  100% {
+    transfrom: rotate(360deg);
+  }
+}

@@ -1,0 +1,142 @@
+@import url('//db.onlinewebfonts.com/c/399d390534f151d40946031425404445?family=Gill+Sans+Std')
+
+@keyframes rotate
+  0%
+    transform rotate(0deg)
+  25%
+    transform rotate(90deg)
+  50%
+    transfrom rotate(180deg)
+  75%
+    transfrom rotate(270deg)
+  100%
+    transfrom rotate(360deg)
+
+html, body
+  margin 0
+  font-family 'Gill Sans Std'
+  background-color #5f8dd3
+  background-image url('images/background.svg')
+input[type=checkbox]
+  position absolute
+  top -9999px
+  left -9999px
+  &:checked
+    ~ .menu .menu__dropdown
+      left 0
+    ~ .menu .menu__button
+      left 300px
+    ~ .menu .menu__burger
+      margin 0 auto
+      position absolute
+      &:nth-child(1)
+        transform rotate(45deg)
+      &:nth-child(2)
+        opacity 0
+      &:nth-child(3)
+        transform rotate(-45deg)
+
+.menu
+  position absolute
+  top 0
+  display flex
+  height 100%
+  background-color #80b3ff
+  &__button
+    position absolute
+    left 0
+    top 0
+    height 70px
+    width 70px
+    box-sizing border-box
+    padding 5px
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    cursor pointer
+    transition all .42s
+    &:hover
+      opacity .8
+      .menu__burger
+        background white
+  &__burger
+    display block
+    width 40px
+    height 4px
+    border-radius 4px
+    background #d7e3f4
+    margin 5px
+    transition all .52s
+    transition-timing-function cubic-bezier(.18,1.88,1,1)
+  &__dropdown
+    border-radius 8px
+    position absolute
+    top 0
+    left -300px
+    width 300px
+    background #80b3ff
+    transition all .52s
+    transition-timing-function cubic-bezier(.49,.97,.4,1)
+    max-height 100vh
+    overflow-x auto
+
+.gameBox
+  margin 0 auto
+  display flex
+  justify-content center
+  align-items center
+  text-align center
+  height 100%
+  flex-direction column
+  color white
+  line-height 0px
+  #cookie
+    margin-top 10px
+    display inline-block
+    cursor pointer
+    img
+      animation-name rotate
+      animation-duration 64s
+      animation-iteration-count infinite
+      animation-timing-function linear
+  #cookieCounter
+    font-size 78px
+  #cpsCounter
+    font-size 26px
+
+.item
+  margin 5px
+  padding 10px
+  box-sizing border-box
+  color white
+  background-color #517ec0
+  border-radius 13px
+  &:nth-child(odd)
+    background-color #3d72c1
+  &__title
+    font-size 1.2em
+    background #6c9be2
+    margin 5px
+    padding 5px
+    border-radius 9px
+    text-align center
+  &__price
+    margin 5px
+    padding 5px
+    background #6c9be2
+    color #3b5a88
+    border-radius 9px
+  &__button
+    padding 5px 20px
+    border 3px solid #eb93a3
+    border-radius 8px
+    background #d9425e
+    cursor pointer
+    font-family 'Gill Sans Std'
+    transition-duration .12s
+    color white
+    &:hover
+      opacity 0.7
+
+

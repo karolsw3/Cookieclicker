@@ -2,10 +2,19 @@ html
   head
     meta(charset='utf-8')
     title Cookieclicker by Karol Świerczek
+    link(rel='stylesheet' href='style.css')
   body
-    p(id='cookieCounter')
-    p(id='cpsCounter')
-    div(id='cookie')
-      img(src='images/cookie.svg' width='250px')
-    section(class='shop' id='shop')
+    input(type='checkbox' id='button')
+    .menu
+      .menu__dropdown
+        section(class='shop' id='shop')
+      label.menu__button(for='button')
+        .menu__burger
+        .menu__burger
+        .menu__burger
+    .gameBox
+      p(id='cookieCounter')
+      p(id='cpsCounter')
+      div(id='cookie')
+        img(src='images/cookie.svg' width='320px')
     script(src='bundle.js')

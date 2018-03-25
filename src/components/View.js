@@ -19,8 +19,12 @@ class View {
     this.cookieCounter.innerText = 'Cookies: ' + cookies
   }
 
+  /**
+   * Set visual cookies per second counter to provided value of cps
+   * @param {number} cps - Quantity of cookies produced per second
+   */
   setCpsCounter (cps) {
-    this.cpsCounter.innerText = 'Cookies per second:' + cps
+    this.cpsCounter.innerText = 'Cookies per second: ' + cps
   }
 
   /**
@@ -49,12 +53,16 @@ class View {
     element.appendChild(elementTitle)
     var elementPrice = document.createElement('div')
     elementPrice.className = 'item__price'
-    elementPrice.innerText = item.price
+    elementPrice.innerText = 'Price: ' + item.price + ' cookies'
     element.appendChild(elementPrice)
     element.appendChild(this.createBuyButton(item.id))
     return element
   }
 
+  /**
+   * Create buy button DOM element, attach its ID to item ID and return it
+   * @param {number} itemId - ID of item that can be bought
+   */
   createBuyButton (itemId) {
     var button = document.createElement('button')
     button.className = 'item__button item__button--buy'

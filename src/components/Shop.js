@@ -7,11 +7,11 @@ class Shop {
     this.categories = [{
       name: 'buildings',
       items: [
-        {id: 0, name: 'cursor', price: 15, cps: 1},
-        {id: 1, name: 'grandmother', price: 100, cps: 8},
-        {id: 2, name: 'bakery', price: 4000, cps: 75},
-        {id: 3, name: 'factory', price: 85000, cps: 400},
-        {id: 4, name: 'cookie town', price: 900000, cps: 5000}
+        {id: 0, name: 'Cursor', price: 15, cps: 1},
+        {id: 1, name: 'Grandmother', price: 100, cps: 8},
+        {id: 2, name: 'Bakery', price: 4000, cps: 75},
+        {id: 3, name: 'Factory', price: 85000, cps: 400},
+        {id: 4, name: 'Cookie town', price: 900000, cps: 5000}
       ]
     }, {
       name: 'upgrades',
