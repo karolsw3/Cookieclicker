@@ -7,16 +7,16 @@ class Shop {
     this.categories = [{
       name: 'buildings',
       items: [
-        {id: 0, name: 'Cursor', price: 15, cps: 1},
-        {id: 1, name: 'Grandmother', price: 100, cps: 8},
-        {id: 2, name: 'Bakery', price: 4000, cps: 75},
-        {id: 3, name: 'Factory', price: 85000, cps: 400},
-        {id: 4, name: 'Cookie town', price: 900000, cps: 5000}
+        {id: 0, name: 'Cursor', price: 15, cps: 1, cpc: 0, description: 'Automatically clicks for you every second (+1cps)'},
+        {id: 1, name: 'Grandmother', price: 100, cps: 8, cpc: 0, description: 'Good grandma to bake your cookies (+8cps)'},
+        {id: 2, name: 'Bakery', price: 4000, cps: 75, cpc: 0, description: 'Your private cookie bakery! (+75cps)'},
+        {id: 3, name: 'Factory', price: 85000, cps: 400, cpc: 0, description: 'It\'s time to rule the world! (+400cps)'},
+        {id: 4, name: 'Cookie town', price: 900000, cps: 5000, cpc: 0, description: '¡Viva el presidente! (+5000cps)'}
       ]
     }, {
       name: 'upgrades',
       items: [
-        {id: 5, name: 'cursor', price: 500, cpc: 4}
+        {id: 5, name: 'Cursor upgrade', price: 5, cps: 0, cpc: 4, description: 'Increases cookies per click'}
       ]
     }]
   }
@@ -44,9 +44,14 @@ class Shop {
    */
   buy ({id, cookies}, callback) {
     var result = {feedback: '', item: {}, change: cookies, succeeded: false}
-    result.item = this.categories.map(category => {
-      return category.items.find(item => item.id === parseInt(id))
-    })[0]
+
+    this.categories.map(category => {
+      category.items.map(item => {
+        if (item.id === parseInt(id)) {
+          result.item = item
+        }
+      })
+    })
 
     if (typeof result.item === 'undefined') {
       result.feedback = "Item with specified ID doesn't exist!"
@@ -57,6 +62,7 @@ class Shop {
       result.change -= result.item.price
       result.succeeded = true
     }
+    console.log(result.item)
     callback(result)
   }
 }

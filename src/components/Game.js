@@ -8,8 +8,7 @@ import View from './View'
 class Game {
   constructor () {
     this.cookies = 0
-    this.cookiesPerClick = 1
-    this.buildings = [{cps: 0}]
+    this.buildings = [{cps: 0, cpc: 0}]
     this.shop = new Shop()
     this.view = new View()
   }
@@ -37,6 +36,7 @@ class Game {
     setInterval(() => {
       this.cookies += parseInt(this.cookiesPerSecond) / 10
       this.view.setCookieCounter(Math.floor(this.cookies))
+      document.title = Math.floor(this.cookies) + ' cookies - Cookieclicker'
     }, 100)
   }
 
@@ -45,6 +45,10 @@ class Game {
    */
   get cookiesPerSecond () {
     return this.buildings.map(building => building.cps).reduce((a, b) => a + b, 0)
+  }
+
+  get cookiesPerClick () {
+    return 1 + this.buildings.map(building => building.cpc).reduce((a, b) => a + b, 0)
   }
 
   /**

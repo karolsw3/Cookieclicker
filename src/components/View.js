@@ -1,5 +1,5 @@
 /**
- * View class
+ * Class responsible for modyfying the game visual content
  * @constructor
  */
 class View {
@@ -55,6 +55,10 @@ class View {
     elementPrice.className = 'item__price'
     elementPrice.innerText = 'Price: ' + item.price + ' cookies'
     element.appendChild(elementPrice)
+    var elementDescription = document.createElement('div')
+    elementDescription.className = 'item__description'
+    elementDescription.innerText = item.description
+    element.appendChild(elementDescription)
     element.appendChild(this.createBuyButton(item.id))
     return element
   }

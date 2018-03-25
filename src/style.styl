@@ -1,4 +1,5 @@
 @import url('//db.onlinewebfonts.com/c/399d390534f151d40946031425404445?family=Gill+Sans+Std')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
 
 @keyframes rotate
   0%
@@ -16,16 +17,18 @@ html, body
   margin 0
   font-family 'Gill Sans Std'
   background-color #5f8dd3
-  background-image url('images/background.svg')
+  overflow hidden
 input[type=checkbox]
   position absolute
   top -9999px
   left -9999px
   &:checked
+    ~ .gameBox
+      margin-left 400px
     ~ .menu .menu__dropdown
       left 0
     ~ .menu .menu__button
-      left 300px
+      left 400px
     ~ .menu .menu__burger
       margin 0 auto
       position absolute
@@ -73,9 +76,9 @@ input[type=checkbox]
     border-radius 8px
     position absolute
     top 0
-    left -300px
-    width 300px
-    background #80b3ff
+    left -400px
+    width 400px
+    background #222
     transition all .52s
     transition-timing-function cubic-bezier(.49,.97,.4,1)
     max-height 100vh
@@ -91,6 +94,10 @@ input[type=checkbox]
   flex-direction column
   color white
   line-height 0px
+  transition all .52s
+  margin-left 0px
+  min-width 550px
+  background-image url('images/background.svg')
   #cookie
     margin-top 10px
     display inline-block
@@ -106,35 +113,41 @@ input[type=checkbox]
     font-size 26px
 
 .item
-  margin 5px
   padding 10px
   box-sizing border-box
   color white
-  background-color #517ec0
-  border-radius 13px
+  background-color #1c232d
   &:nth-child(odd)
-    background-color #3d72c1
+    background-color #293649
   &__title
-    font-size 1.2em
-    background #6c9be2
-    margin 5px
-    padding 5px
-    border-radius 9px
+    font-size 1.3em
+    padding 5px 10px
     text-align center
   &__price
+    font-family 'Open Sans'
+    font-size 0.8em
     margin 5px
-    padding 5px
-    background #6c9be2
-    color #3b5a88
+    padding 5px 10px
+    background #161616
+    color #9db4d6
+    border-radius 9px
+  &__description
+    font-family 'Open Sans'
+    font-size 0.8em
+    margin 5px
+    padding 5px 10px
+    background #161616
+    color #e2e2e2
     border-radius 9px
   &__button
-    padding 5px 20px
-    border 3px solid #eb93a3
+    padding 3px 30px
     border-radius 8px
+    border none
     background #d9425e
     cursor pointer
-    font-family 'Gill Sans Std'
+    font-family 'Open Sans'
     transition-duration .12s
+    margin 0 5px
     color white
     &:hover
       opacity 0.7
