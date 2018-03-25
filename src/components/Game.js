@@ -74,6 +74,8 @@ class Game {
         this.cookies = Math.round(result.change)
         this.view.setCookieCounter(this.cookies)
         this.view.setCpsCounter(this.cookiesPerSecond)
+      } else {
+        this.view.showAlert(result.feedback, 3000)
       }
     })
   }

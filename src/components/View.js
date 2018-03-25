@@ -7,6 +7,7 @@ class View {
     this.cookie = document.getElementById('cookie')
     this.shop = document.getElementById('shop')
     this.cookieCounter = document.getElementById('cookieCounter')
+    this.alert = document.getElementById('alert')
     this.cpsCounter = document.getElementById('cpsCounter')
     this.buyButtons = []
   }
@@ -38,6 +39,19 @@ class View {
         this.shop.appendChild(this.createItemElement(item))
       })
     })
+  }
+
+  /**
+   * Generate visual alert and show it
+   * @param {string} message - Message to be shown
+   * @param {number} duration - How long the alert will be displayed (in ms)
+   */
+  showAlert (message, duration) {
+    this.alert.innerText = message
+    this.alert.style.opacity = 1
+    setTimeout(() => {
+      this.alert.style.opacity = 0
+    }, duration)
   }
 
   /**

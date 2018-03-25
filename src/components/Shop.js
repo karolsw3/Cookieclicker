@@ -16,7 +16,7 @@ class Shop {
     }, {
       name: 'upgrades',
       items: [
-        {id: 5, name: 'Cursor upgrade', price: 5, cps: 0, cpc: 4, description: 'Increases cookies per click'}
+        {id: 5, name: 'Cursor upgrade', price: 500, cps: 0, cpc: 4, description: 'Increases cookies per click'}
       ]
     }]
   }
@@ -62,7 +62,6 @@ class Shop {
       result.change -= result.item.price
       result.succeeded = true
     }
-    console.log(result.item)
     callback(result)
   }
 }
