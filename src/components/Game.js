@@ -69,6 +69,7 @@ class Game {
     }, (result) => {
       if (result.succeeded) {
         result.item.price = Math.round(result.item.price * 1.4)
+        result.item.owned++
         this.reloadShopView()
         this.buildings.push(result.item)
         this.cookies = Math.round(result.change)

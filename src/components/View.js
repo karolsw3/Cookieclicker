@@ -67,7 +67,7 @@ class View {
     element.appendChild(elementTitle)
     var elementPrice = document.createElement('div')
     elementPrice.className = 'item__price'
-    elementPrice.innerText = 'Price: ' + item.price + ' cookies'
+    elementPrice.innerText = 'Price: ' + item.price + ' cookies ' + ' (Owned: ' + item.owned + ')'
     element.appendChild(elementPrice)
     var elementDescription = document.createElement('div')
     elementDescription.className = 'item__description'
