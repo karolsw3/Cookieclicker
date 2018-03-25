@@ -35,9 +35,9 @@ class Game {
    */
   startInterval () {
     setInterval(() => {
-      this.cookies += Math.round(parseInt(this.cookiesPerSecond))
-      this.view.setCookieCounter(this.cookies)
-    }, 1000)
+      this.cookies += parseInt(this.cookiesPerSecond) / 10
+      this.view.setCookieCounter(Math.floor(this.cookies))
+    }, 100)
   }
 
   /**
@@ -52,7 +52,7 @@ class Game {
    */
   cookieClick () {
     this.cookies += this.cookiesPerClick
-    this.view.setCookieCounter(this.cookies)
+    this.view.setCookieCounter(Math.floor(this.cookies))
   }
 
   /**
