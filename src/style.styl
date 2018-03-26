@@ -13,6 +13,12 @@
   100%
     transfrom rotate(360deg)
 
+@keyframes fall
+	from
+		top -100px
+	to
+		top 2000px
+
 html, body
   margin 0
   font-family 'Gill Sans Std'
@@ -45,6 +51,7 @@ input[type=checkbox]
   display flex
   height 100%
   background-color #80b3ff
+  z-index 2
   &__button
     position absolute
     left 0
@@ -102,6 +109,7 @@ input[type=checkbox]
     margin-top 10px
     display inline-block
     cursor pointer
+    z-index 2
     img
       animation-name rotate
       animation-duration 64s
@@ -111,6 +119,17 @@ input[type=checkbox]
     font-size 78px
   #cpsCounter
     font-size 26px
+  .fallingCookie
+    width 70px
+    height 70px
+    position absolute
+    border-radius 100%
+    top -100px
+    left 0
+    right 0
+    animation-name fall
+    animation-duration 5s
+    background url('images/cookie.svg') center 100% / 100%
 
 .shop
   &__category
@@ -170,7 +189,7 @@ input[type=checkbox]
   width 500px
   height 70px
   border-radius 10px
-  background #ff7777
+  background #ff5555
   color white
   display flex
   justify-content center

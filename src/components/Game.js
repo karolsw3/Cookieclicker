@@ -38,6 +38,9 @@ class Game {
       this.view.setCookieCounter(Math.floor(this.cookies))
       document.title = Math.floor(this.cookies) + ' cookies - Cookieclicker'
     }, 100)
+    setInterval(() => {
+      this.view.makeCookieRain(parseInt(this.cookiesPerSecond))
+    }, 1000)
   }
 
   /**
@@ -57,6 +60,7 @@ class Game {
   cookieClick () {
     this.cookies += this.cookiesPerClick
     this.view.setCookieCounter(Math.floor(this.cookies))
+    this.view.makeCookieRain(this.cookiesPerClick)
   }
 
   /**

@@ -40,6 +40,7 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   display: flex;
   height: 100%;
   background-color: #80b3ff;
+  z-index: 2;
 }
 .menu__button {
   position: absolute;
@@ -103,6 +104,7 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   margin-top: 10px;
   display: inline-block;
   cursor: pointer;
+  z-index: 2;
 }
 .gameBox #cookie img {
   animation-name: rotate;
@@ -115,6 +117,18 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
 }
 .gameBox #cpsCounter {
   font-size: 26px;
+}
+.gameBox .fallingCookie {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  border-radius: 100%;
+  top: -100px;
+  left: 0;
+  right: 0;
+  animation-name: fall;
+  animation-duration: 5s;
+  background: url("images/cookie.svg") center 100%/100%;
 }
 .shop__category {
   padding: 15px 0;
@@ -179,7 +193,7 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   width: 500px;
   height: 70px;
   border-radius: 10px;
-  background: #f77;
+  background: #f55;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -252,5 +266,37 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   }
   100% {
     transfrom: rotate(360deg);
+  }
+}
+@-moz-keyframes fall {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 2000px;
+  }
+}
+@-webkit-keyframes fall {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 2000px;
+  }
+}
+@-o-keyframes fall {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 2000px;
+  }
+}
+@keyframes fall {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 2000px;
   }
 }

@@ -9,6 +9,7 @@ class View {
     this.cookieCounter = document.getElementById('cookieCounter')
     this.alert = document.getElementById('alert')
     this.cpsCounter = document.getElementById('cpsCounter')
+    this.gameBox = document.getElementById('gameBox')
     this.buyButtons = []
   }
 
@@ -100,6 +101,22 @@ class View {
     button.innerText = 'Buy'
     this.buyButtons.push(button)
     return button
+  }
+
+  /**
+   * Create cookie fall background animation
+   * @param {number} quantity - Amount of cookies to be generated
+   */
+  makeCookieRain (quantity) {
+    for (let i = 0; i < quantity; i++) {
+      var cookieElement = document.createElement('div')
+      cookieElement.className = 'fallingCookie'
+      cookieElement.style.left = Math.random() * window.innerWidth + 'px'
+      this.gameBox.appendChild(cookieElement)
+      setTimeout(() => {
+        this.gameBox.removeChild(cookieElement)
+      }, 1800)
+    }
   }
 }
 
