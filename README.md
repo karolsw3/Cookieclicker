@@ -1,4 +1,7 @@
 # Cookieclicker
+
+![](https://image.ibb.co/c136LS/Screenshot_188.png)
+
 Simple cookieclicker game written in javascript.
 
 My priority was to build interactive javascript game without using any frameworks. 
