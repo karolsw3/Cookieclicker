@@ -5,6 +5,7 @@
 class View {
   constructor () {
     this.cookie = document.getElementById('cookie')
+    this.cookie.draggable = false
     this.shop = document.getElementById('shop')
     this.cookieCounter = document.getElementById('cookieCounter')
     this.alert = document.getElementById('alert')
@@ -108,15 +109,35 @@ class View {
    * @param {number} quantity - Amount of cookies to be generated
    */
   makeCookieRain (quantity) {
+    quantity = quantity > 30 ? 30 : quantity
     for (let i = 0; i < quantity; i++) {
-      var cookieElement = document.createElement('div')
+      let cookieElement = document.createElement('div')
       cookieElement.className = 'fallingCookie'
       cookieElement.style.left = Math.random() * window.innerWidth + 'px'
-      this.gameBox.appendChild(cookieElement)
       setTimeout(() => {
-        this.gameBox.removeChild(cookieElement)
-      }, 1800)
+        this.gameBox.appendChild(cookieElement)
+        setTimeout(() => {
+          this.gameBox.removeChild(cookieElement)
+        }, 2000)
+      }, Math.random() * 1000)
     }
+  }
+
+  /**
+   * Show specified text near the cursor that fades away after 800ms
+   * @param {object} event - Document click event
+   * @param {string} text - Text to be shown
+   */
+  showCursorText (event, text) {
+    var cursorText = document.createElement('div')
+    cursorText.className = 'cursorText'
+    cursorText.style.left = event.clientX - 15 + 'px'
+    cursorText.style.top = event.clientY - 30 + 'px'
+    cursorText.innerHTML = text
+    document.body.appendChild(cursorText)
+    setTimeout(() => {
+      document.body.removeChild(cursorText)
+    }, 800)
   }
 }
 

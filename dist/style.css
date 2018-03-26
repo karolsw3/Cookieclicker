@@ -111,6 +111,11 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   animation-duration: 64s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  user-select: none;
+}
+.gameBox #cookie -moz-user-select none {
+  user-drag: none;
+  -webkit-user-drag: none;
 }
 .gameBox #cookieCounter {
   font-size: 78px;
@@ -198,7 +203,21 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition-duration: 0.3s;
+  transition-duration: 0.4s;
+}
+.cursorText {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  animation-name: fade;
+  animation-duration: 0.8s;
+  z-index: 3;
+  user-select: none;
+  -moz-user-select: none;
+  cursor: pointer;
 }
 @-moz-keyframes rotate {
   0% {
@@ -298,5 +317,53 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   }
   to {
     top: 2000px;
+  }
+}
+@-moz-keyframes fade {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+    font-size: 23px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+    font-size: 43px;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+    font-size: 23px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+    font-size: 43px;
+  }
+}
+@-o-keyframes fade {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+    font-size: 23px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+    font-size: 43px;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+    font-size: 23px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+    font-size: 43px;
   }
 }

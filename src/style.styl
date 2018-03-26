@@ -19,6 +19,16 @@
 	to
 		top 2000px
 
+@keyframes fade
+	from
+		opacity 1
+		transform translateY(0px)
+		font-size 23px
+	to
+		opacity 0
+		transform translateY(-50px)
+		font-size 43px
+
 html, body
   margin 0
   font-family 'Gill Sans Std'
@@ -115,6 +125,10 @@ input[type=checkbox]
       animation-duration 64s
       animation-iteration-count infinite
       animation-timing-function linear
+      user-select none
+	    -moz-user-select none
+      user-drag none
+      -webkit-user-drag none
   #cookieCounter
     font-size 78px
   #cpsCounter
@@ -194,4 +208,18 @@ input[type=checkbox]
   display flex
   justify-content center
   align-items center
-  transition-duration .3s
+  transition-duration .4s
+
+.cursorText
+	position absolute
+	left 0
+	top 0
+	color white
+	font-size 12px
+	text-align center
+	animation-name fade
+	animation-duration 0.8s
+	z-index 3
+	user-select none
+	-moz-user-select none
+	cursor pointer

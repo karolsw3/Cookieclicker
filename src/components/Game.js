@@ -57,10 +57,11 @@ class Game {
   /**
    * Increase cookie amount by cookiesPerClick
    */
-  cookieClick () {
+  cookieClick (event) {
     this.cookies += this.cookiesPerClick
     this.view.setCookieCounter(Math.floor(this.cookies))
     this.view.makeCookieRain(this.cookiesPerClick)
+    this.view.showCursorText(event, '+' + this.cookiesPerClick)
   }
 
   /**
