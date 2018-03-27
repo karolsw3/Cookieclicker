@@ -8,6 +8,7 @@ class View {
     this.cookie.draggable = false
     this.shop = document.getElementById('shop')
     this.cookieCounter = document.getElementById('cookieCounter')
+    this.cookieWave = document.getElementById('cookieWave')
     this.alert = document.getElementById('alert')
     this.cpsCounter = document.getElementById('cpsCounter')
     this.gameBox = document.getElementById('gameBox')
@@ -102,6 +103,11 @@ class View {
     button.innerText = 'Buy'
     this.buyButtons.push(button)
     return button
+  }
+
+  showCookieWave (height) {
+    console.log(-100 + height + '%')
+    this.cookieWave.style.bottom = -100 + height + '%'
   }
 
   /**

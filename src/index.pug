@@ -4,18 +4,20 @@ html
     title Cookieclicker by Karol Świerczek
     link(rel='stylesheet' href='style.css')
   body
-    input(type='checkbox' id='button')
+    input#button(type='checkbox')
     .menu
       .menu__dropdown
-        section(class='shop' id='shop')
+        section#shop(class='shop')
       label.menu__button(for='button')
         .menu__burger
         .menu__burger
         .menu__burger
-    .gameBox(id='gameBox')
+    .gameBox#gameBox
       p(id='cookieCounter')
       p(id='cpsCounter')
-      div(id='cookie')
+      #cookie
         img(src='images/cookie.svg' width='320px')
-      div(class='alert' id='alert')
+      .alert#alert
+      .cookieWave#cookieWave
+        img(src='images/cookieWave.svg' width='2000px')
     script(src='bundle.js')

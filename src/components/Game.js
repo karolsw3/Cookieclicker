@@ -55,6 +55,14 @@ class Game {
   }
 
   /**
+   * Calculate the height of the cookie wave according to the contractual limit of 1000 cookies per second
+   * @return {number} Height in %
+   */
+  get cookieWaveHeight () {
+    return (this.cookiesPerSecond < 1000) ? (this.cookiesPerSecond / 10) : 100
+  }
+
+  /**
    * Increase cookie amount by cookiesPerClick
    */
   cookieClick (event) {
@@ -80,6 +88,7 @@ class Game {
         this.cookies = Math.round(result.change)
         this.view.setCookieCounter(this.cookies)
         this.view.setCpsCounter(this.cookiesPerSecond)
+        this.view.showCookieWave(this.cookieWaveHeight)
       } else {
         this.view.showAlert(result.feedback, 3000)
       }

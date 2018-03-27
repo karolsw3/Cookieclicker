@@ -211,13 +211,20 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   top: 0;
   color: #fff;
   font-size: 12px;
-  text-align: center;
   animation-name: fade;
   animation-duration: 0.8s;
   z-index: 3;
   user-select: none;
   -moz-user-select: none;
   cursor: pointer;
+}
+.cookieWave {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 @-moz-keyframes rotate {
   0% {
