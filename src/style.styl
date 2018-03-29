@@ -14,20 +14,20 @@
     transfrom rotate(360deg)
 
 @keyframes fall
-	from
-		top -100px
-	to
-		top 2000px
+  from
+    top -100px
+  to
+    top 2000px
 
 @keyframes fade
-	from
-		opacity 1
-		transform translateY(0px)
-		font-size 23px
-	to
-		opacity 0
-		transform translateY(-50px)
-		font-size 43px
+  from
+    opacity 1
+    transform translate(0px, 0px)
+    font-size 23px
+  to
+    opacity 0
+    transform translate(-12px, -125px)
+    font-size 43px
 
 html, body
   margin 0
@@ -40,11 +40,11 @@ input[type=checkbox]
   left -9999px
   &:checked
     ~ .gameBox
-      margin-left 400px
+      margin-left 338px
     ~ .menu .menu__dropdown
       left 0
     ~ .menu .menu__button
-      left 400px
+      left 338px
     ~ .menu .menu__burger
       margin 0 auto
       position absolute
@@ -61,7 +61,7 @@ input[type=checkbox]
   display flex
   height 100%
   background-color #80b3ff
-  z-index 2
+  z-index 4
   &__button
     position absolute
     left 0
@@ -90,16 +90,14 @@ input[type=checkbox]
     transition all .52s
     transition-timing-function cubic-bezier(.18,1.88,1,1)
   &__dropdown
-    border-radius 8px
     position absolute
     top 0
-    left -400px
-    width 400px
+    left -339px
+    width auto
     background #222
     transition all .52s
     transition-timing-function cubic-bezier(.49,.97,.4,1)
-    max-height 100vh
-    overflow-x auto
+    height 100vh
 
 .gameBox
   margin 0 auto
@@ -117,6 +115,7 @@ input[type=checkbox]
   background-image url('images/background.svg')
   #cookie
     margin-top 10px
+    border-radius 100%
     display inline-block
     cursor pointer
     z-index 2
@@ -131,8 +130,10 @@ input[type=checkbox]
       -webkit-user-drag none
   #cookieCounter
     font-size 78px
+    z-index 3
   #cpsCounter
     font-size 26px
+    z-index 3
   .fallingCookie
     width 70px
     height 70px
@@ -154,8 +155,40 @@ input[type=checkbox]
     background #ff5555
     color white
     font-size 1.4em
+  &__items
+    padding 10px
+    box-sizing border-box
+    display grid
+    grid-template 1fr / 1fr 1fr 1fr
+    grid-gap 10px
 
 .item
+  position relative
+  width 90px
+  height 90px
+  border-radius 8px
+  border 5px solid black
+  background white
+  cursor pointer
+  transition-duration .12s
+  &:hover
+    border-color #ff5555
+    .itemDescription
+      display inline-block
+      opacity 1
+
+.itemDescription
+  position absolute
+  top -20px
+  left 120px
+  width 338px
+  border-radius 7px
+  color white
+  font-size 14px
+  transition all .12s
+  opacity 0
+  display none
+  z-index 999
   padding 10px
   box-sizing border-box
   color white
@@ -168,7 +201,6 @@ input[type=checkbox]
     text-align center
   &__price
     font-family 'Open Sans'
-    font-size 0.8em
     margin 5px
     padding 5px 10px
     background #161616
@@ -176,7 +208,6 @@ input[type=checkbox]
     border-radius 9px
   &__description
     font-family 'Open Sans'
-    font-size 0.8em
     margin 5px
     padding 5px 10px
     background #161616
@@ -209,19 +240,20 @@ input[type=checkbox]
   justify-content center
   align-items center
   transition-duration .4s
+  z-index 999
 
 .cursorText
-	position absolute
-	left 0
-	top 0
-	color white
-	font-size 12px
-	animation-name fade
-	animation-duration 0.8s
-	z-index 3
-	user-select none
-	-moz-user-select none
-	cursor pointer
+  position absolute
+  left 0
+  top 0
+  color white
+  font-size 12px
+  animation-name fade
+  animation-duration 0.8s
+  z-index 3
+  user-select none
+  -moz-user-select none
+  cursor pointer
 
 .cookieWave
   position absolute

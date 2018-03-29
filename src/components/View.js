@@ -38,10 +38,13 @@ class View {
   showShopItems (categories) {
     this.shop.innerHTML = ''
     categories.map(category => {
+      var items = document.createElement('div')
+      items.className = 'shop__items'
       this.shop.appendChild(this.createCategoryElement(category.name))
       category.items.map(item => {
-        this.shop.appendChild(this.createItemElement(item))
+        items.appendChild(this.createItemElement(item))
       })
+      this.shop.appendChild(items)
     })
   }
 
@@ -64,20 +67,35 @@ class View {
    */
   createItemElement (item) {
     var element = document.createElement('div')
+    element.id = item.id
     element.className = 'item'
+    this.buyButtons.push(element)
+    var description = this.createItemDescription({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      description: item.description,
+      owned: item.owned
+    })
+    element.appendChild(description)
+    return element
+  }
+
+  createItemDescription ({id, name, price, description, owned}) {
+    var element = document.createElement('div')
+    element.className = 'itemDescription'
     var elementTitle = document.createElement('div')
-    elementTitle.className = 'item__title'
-    elementTitle.innerText = item.name
+    elementTitle.className = 'itemDescription__title'
+    elementTitle.innerText = name
     element.appendChild(elementTitle)
     var elementPrice = document.createElement('div')
-    elementPrice.className = 'item__price'
-    elementPrice.innerText = 'Price: ' + item.price + ' cookies ' + ' (Owned: ' + item.owned + ')'
+    elementPrice.className = 'itemDescription__price'
+    elementPrice.innerText = 'Price: ' + price + ' cookies ' + ' (Owned: ' + owned + ')'
     element.appendChild(elementPrice)
     var elementDescription = document.createElement('div')
-    elementDescription.className = 'item__description'
-    elementDescription.innerText = item.description
+    elementDescription.className = 'itemDescription__description'
+    elementDescription.innerText = description
     element.appendChild(elementDescription)
-    element.appendChild(this.createBuyButton(item.id))
     return element
   }
 
@@ -92,21 +110,7 @@ class View {
     return element
   }
 
-  /**
-   * Create buy button DOM element, attach its ID to item ID and return it
-   * @param {number} itemId - ID of item that can be bought
-   */
-  createBuyButton (itemId) {
-    var button = document.createElement('button')
-    button.className = 'item__button item__button--buy'
-    button.id = itemId
-    button.innerText = 'Buy'
-    this.buyButtons.push(button)
-    return button
-  }
-
   showCookieWave (height) {
-    console.log(-100 + height + '%')
     this.cookieWave.style.bottom = -100 + height + '%'
   }
 
