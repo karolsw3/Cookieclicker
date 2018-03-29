@@ -120,6 +120,7 @@ input[type=checkbox]
     cursor pointer
     z-index 2
     img
+      border-radius 100%
       animation-name rotate
       animation-duration 64s
       animation-iteration-count infinite
@@ -174,25 +175,29 @@ input[type=checkbox]
   &:hover
     border-color #ff5555
     .itemDescription
-      display inline-block
+      visibility visible
       opacity 1
 
 .itemDescription
   position absolute
   top -20px
-  left 120px
+  left 110px
   width 338px
   border-radius 7px
   color white
   font-size 14px
-  transition all .12s
+  transition all .18s
   opacity 0
-  display none
+  visibility hidden
   z-index 999
   padding 10px
   box-sizing border-box
   color white
   background-color #1c232d
+  cursor default
+  &:hover
+    opacity 0 !important
+    visibility hidden !important
   &:nth-child(odd)
     background-color #293649
   &__title

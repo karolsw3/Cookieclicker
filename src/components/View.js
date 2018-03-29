@@ -69,6 +69,7 @@ class View {
     var element = document.createElement('div')
     element.id = item.id
     element.className = 'item'
+    element.style.background = `url("images/items/${item.id}.png") center 100% / 100%`
     this.buyButtons.push(element)
     var description = this.createItemDescription({
       id: item.id,

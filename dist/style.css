@@ -106,6 +106,7 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   z-index: 2;
 }
 .gameBox #cookie img {
+  border-radius: 100%;
   animation-name: rotate;
   animation-duration: 64s;
   animation-iteration-count: infinite;
@@ -166,25 +167,30 @@ input[type=checkbox]:checked ~ .menu .menu__burger:nth-child(3) {
   border-color: #f55;
 }
 .item:hover .itemDescription {
-  display: inline-block;
+  visibility: visible;
   opacity: 1;
 }
 .itemDescription {
   position: absolute;
   top: -20px;
-  left: 120px;
+  left: 110px;
   width: 338px;
   border-radius: 7px;
   color: #fff;
   font-size: 14px;
-  transition: all 0.12s;
+  transition: all 0.18s;
   opacity: 0;
-  display: none;
+  visibility: hidden;
   z-index: 999;
   padding: 10px;
   box-sizing: border-box;
   color: #fff;
   background-color: #1c232d;
+  cursor: default;
+}
+.itemDescription:hover {
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 .itemDescription:nth-child(odd) {
   background-color: #293649;
