@@ -71,31 +71,31 @@ class View {
     element.className = 'item'
     element.style.background = `url("images/items/${item.id}.png") center 100% / 100%`
     this.buyButtons.push(element)
-    var description = this.createItemDescription({
-      id: item.id,
-      name: item.name,
-      price: item.price,
-      description: item.description,
-      owned: item.owned
-    })
+    var description = this.createItemDescription(item)
     element.appendChild(description)
     return element
   }
 
-  createItemDescription ({id, name, price, description, owned}) {
+  createItemDescription (item) {
     var element = document.createElement('div')
     element.className = 'itemDescription'
     var elementTitle = document.createElement('div')
     elementTitle.className = 'itemDescription__title'
-    elementTitle.innerText = name
+    elementTitle.innerText = item.name
     element.appendChild(elementTitle)
     var elementPrice = document.createElement('div')
     elementPrice.className = 'itemDescription__price'
-    elementPrice.innerText = 'Price: ' + price + ' cookies ' + ' (Owned: ' + owned + ')'
+    elementPrice.innerText = 'Price: ' + item.price + ' cookies ' + ' (Owned: ' + item.owned + ')'
     element.appendChild(elementPrice)
     var elementDescription = document.createElement('div')
     elementDescription.className = 'itemDescription__description'
-    elementDescription.innerText = description
+    elementDescription.innerText = item.description
+    if (item.cps > 0) {
+      elementDescription.innerText += ` (+${item.cps}cps)`
+    }
+    if (item.cpc > 0) {
+      elementDescription.innerText += ` (+${item.cpc}cpc)`
+    }
     element.appendChild(elementDescription)
     return element
   }
