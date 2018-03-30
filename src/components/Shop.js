@@ -8,7 +8,7 @@ class Shop {
       name: 'Buildings',
       items: [
         {id: 0, name: 'Cursor', price: 15, cps: 1, cpc: 0, description: 'Automatically clicks for you every second', owned: 0},
-        {id: 1, name: 'Grandmother', price: 100, cps: 8, cpc: 0, description: 'Good grandma to bake your cookies', owned: 0},
+        {id: 1, name: 'Grandmother', price: 230, cps: 8, cpc: 0, description: 'Good grandma to bake your cookies', owned: 0},
         {id: 2, name: 'Bakery', price: 3000, cps: 65, cpc: 0, description: 'Your private cookie bakery!', owned: 0},
         {id: 3, name: 'Factory', price: 85000, cps: 400, cpc: 0, description: 'It\'s time to rule the world!', owned: 0},
         {id: 4, name: 'Cookie town', price: 900000, cps: 5000, cpc: 0, description: '¡Viva el presidente!', owned: 0}
@@ -16,7 +16,7 @@ class Shop {
     }, {
       name: 'Upgrades',
       items: [
-        {id: 5, name: 'Cursor upgrade', price: 500, cps: 0, cpc: 4, description: 'Increases cookies per click and makes Cursor building 2x more efficient', owned: 0, onBuy: (that) => { that.categories[0].items[0].cps *= 2 }}
+        {id: 5, name: 'Cursor upgrade', price: 500, cps: 0, cpc: 4, description: 'Increases cookies per click and makes Cursor building 15% more efficient', owned: 0, onBuy: (that) => { that.categories[0].items[0].cps = Math.round(that.categories[0].items[0].cps * 115) / 100 }}
       ]
     }]
   }

@@ -87,7 +87,7 @@ class Game {
         this.buildings.push(result.item)
         this.cookies = Math.round(result.change)
         this.view.setCookieCounter(this.cookies)
-        this.view.setCpsCounter(this.cookiesPerSecond)
+        this.view.setCpsCounter(Math.round(this.cookiesPerSecond))
         this.view.showCookieWave(this.cookieWaveHeight)
       } else {
         this.view.showAlert(result.feedback, 3000)

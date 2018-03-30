@@ -120,7 +120,7 @@ class View {
    * @param {number} quantity - Amount of cookies to be generated
    */
   makeCookieRain (quantity) {
-    quantity = quantity > 30 ? 30 : quantity
+    quantity = quantity > 25 ? 25 : quantity
     for (let i = 0; i < quantity; i++) {
       let cookieElement = document.createElement('div')
       cookieElement.className = 'fallingCookie'
