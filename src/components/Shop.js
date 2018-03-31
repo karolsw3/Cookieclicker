@@ -10,17 +10,17 @@ class Shop {
         {id: 0, name: 'Cursor', price: 15, cps: 1, cpc: 0, description: 'Automatically clicks for you every second', owned: 0},
         {id: 1, name: 'Grandmother', price: 230, cps: 8, cpc: 0, description: 'Good grandma to bake your cookies', owned: 0},
         {id: 2, name: 'Bakery', price: 3000, cps: 65, cpc: 0, description: 'Your private cookie bakery!', owned: 0},
-        {id: 3, name: 'Factory', price: 85000, cps: 400, cpc: 0, description: 'It\'s time to rule the world!', owned: 0},
-        {id: 4, name: 'Cookie town', price: 900000, cps: 5000, cpc: 0, description: '¡Viva el presidente!', owned: 0}
+        {id: 3, name: 'Factory', price: 85000, cps: 900, cpc: 0, description: 'It\'s time to rule the world!', owned: 0},
+        {id: 4, name: 'Cookie town', price: 900000, cps: 15000, cpc: 0, description: '¡Viva el presidente!', owned: 0}
       ]
     }, {
       name: 'Upgrades',
       items: [
-        {id: 5, name: 'Cursor upgrade', price: 500, cps: 0, cpc: 4, description: 'Increases cookies per click and makes Cursor building 15% more efficient', owned: 0, onBuy: (that) => { that.categories[0].items[0].cps = Math.round(that.categories[0].items[0].cps * 115) / 100 }},
+        {id: 5, name: 'Cursor upgrade', price: 500, cps: 0, cpc: 4, description: 'Increases cookies per click and makes Cursor building 35% more efficient', owned: 0, onBuy: (that) => { that.categories[0].items[0].cps = Math.round(that.categories[0].items[0].cps * 135) / 100 }},
         {id: 6, name: 'Young grandma', price: 6500, cps: 0, cpc: 0, description: 'Makes all grandmas 20% more efficient!', owned: 0, onBuy: (that) => { that.categories[0].items[1].cps = Math.round(that.categories[0].items[1].cps * 120) / 100 }},
         {id: 7, name: 'Handsome bakeryman', price: 25000, cps: 0, cpc: 0, description: 'Handsome bakeryman to handle more cookies! Makes bakery 25% more efficient', owned: 0, onBuy: (that) => { that.categories[0].items[2].cps = Math.round(that.categories[0].items[2].cps * 125) / 100 }},
         {id: 8, name: 'Modern factory', price: 135000, cps: 0, cpc: 0, description: 'Modern factories are 35% more efficient', owned: 0, onBuy: (that) => { that.categories[0].items[3].cps = Math.round(that.categories[0].items[3].cps * 135) / 100 }},
-        {id: 9, name: 'Gradientified town', price: 5000000, cps: 0, cpc: 0, description: 'Makes all your towns 60% more efficient!', owned: 0, onBuy: (that) => { that.categories[0].items[4].cps = Math.round(that.categories[0].items[4].cps * 160) / 100 }}
+        {id: 9, name: 'Gradientified town', price: 3000000, cps: 0, cpc: 0, description: 'Makes all your towns 60% more efficient!', owned: 0, onBuy: (that) => { that.categories[0].items[4].cps = Math.round(that.categories[0].items[4].cps * 160) / 100 }}
       ]
     }]
   }
